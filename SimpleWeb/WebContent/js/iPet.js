@@ -4,7 +4,7 @@ $(document).ready(function(){
 	events_register.tabs();//register tabs click actions
 	events_register.tab_submit();//register submit buttons
 	events_register.tab_datepicker();//register the date picker events
-	
+	events_register.ajax_error();//Register global ajax error handler
 });
 
 //Object to encapsulate all event registrations
@@ -51,7 +51,16 @@ var events_register = {
 		$('#resubmit-btn').on('click', function(){
 			api_calls.resubmit_svc(this);
 		});
-	}
+	},
+	
+	ajax_error : function(){
+		$( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+			  
+			    alert('Bad Service. Something went wrong while accessing the service!!');
+			    view_actions.reset_content();
+			  
+			});
+	},
 	
 };
 
@@ -64,7 +73,7 @@ var view_actions = {
 		},
 		
 		populateGrid : function(json){
-//			json = CONSTANTS.json1;
+			json = CONSTANTS.json1;
 			//populate header
 			var tbl, header='', body='';
 
@@ -126,7 +135,7 @@ var view_actions = {
 		},
 		
 		populate_modal : function(json){
-//			json = CONSTANTS.xml1;
+			json = CONSTANTS.xml1;
 			if(typeof json == 'undefined' || json.length == 0){
 				return;
 			}
@@ -153,15 +162,16 @@ var logic = {
 		                  "AUG", "SEP", "OCT",
 		                  "NOV", "DEC"
 		                ];
+		var dt_str = '';
 		var dt_parts = _date.split('/');
 		var tm_parts = _time.split(':');
 		//TARGET 18-APR-16 08.35.54.813000000
 		
-		if(dt_parts.length > 0 && tm_parts.length > 0){
+		if(dt_parts.length > 1 && tm_parts.length > 1){
 			if(dt_parts[0].indexOf('0') == 0){
 				dt_parts[0] = dt_parts[0].substring(1,2);
 			}
-			var dt_str = dt_parts[1] + '-' + monthNames[dt_parts[0]] + '-' + dt_parts[2].substring(2, 4) + ' ' 
+			dt_str = dt_parts[1] + '-' + monthNames[dt_parts[0]] + '-' + dt_parts[2].substring(2, 4) + ' ' 
 						+ tm_parts[0] + '.'  + tm_parts[1] + '.' +  + tm_parts[2] + '.000000000';
 		}
 		 
@@ -239,7 +249,15 @@ var api_calls ={
 			
 			get : function(url, data, successCB){
 //				$.getJSON(url, data, successCB);
-				successCB();
+//				successCB();
+				$.ajax({
+					  url: url,
+					  dataType: 'json',
+					  method : 'GET',
+					  data: data,
+					  success: successCB,
+					  timeout: 10000 
+					});
 			}
 				
 		},
