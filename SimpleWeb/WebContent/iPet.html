@@ -4,8 +4,12 @@
 <title>iPet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.css">	 -->
 <link rel="stylesheet"
 	href="https://bootswatch.com/spacelab/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet" type="text/css" media="screen"
      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 <script
@@ -16,7 +20,6 @@
      src="http://momentjs.com/downloads/moment.js">
     </script>
 
-    </script>
  <script type="text/javascript"
      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/collapse.js">
     </script>
@@ -84,6 +87,25 @@ border: 1px blue solid;
 	.row.content {
 		height: auto;
 	}
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+    -moz-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+@-moz-keyframes spin2 {
+  from { -moz-transform: rotate(0deg);}
+  to { -moz-transform: rotate(360deg);}
 }
 </style>
 </head>
@@ -170,7 +192,10 @@ border: 1px blue solid;
 				                    </div>
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
-								 	<input type="button" class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_1" value="Search" id="tab_submit" />
+								 	<button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_1">
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
 								</fieldset>
 							</form>
 						</div>
@@ -178,11 +203,14 @@ border: 1px blue solid;
 						<div id="sbTX_div" class="col-sm-offset-1 col-sm-10 hidden" style="padding-top: 25px;">
 							<form class="col-sm-offset-2">
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
-									<label for="txid">Transaction ID:</label>
-									<input type="text" id='txid' class="form-control input-margin-horiz" placeholder="Enter Transaction ID here" size="40" />
+									<label for="trackingid">Transaction ID:</label>
+									<input type="text" id='trackingid' class="form-control input-margin-horiz" placeholder="Enter Transaction ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
-									 <input type="button" class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_2" value="Search" id="tab_submit">
+									<button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_2" data-is-path-var='trackingid'>
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
 								</fieldset>
 							</form>
 						</div>
@@ -191,28 +219,34 @@ border: 1px blue solid;
 						<div id="sbCORR_div" class="col-sm-offset-1 col-sm-10 hidden">
 							<form class="col-sm-offset-2">
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
-									<label class="control-label" for="coid1">Correlation ID 1:</label>
-									<input type="text" id="coid1" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<label class="control-label" for="correlationid1">Correlation ID 1:</label>
+									<input type="text" id="correlationid1" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
-									<label class="control-label" for="coid2">Correlation ID 2:</label>
-									<input type="text" id="coid2" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<label class="control-label" for="correlationid2">Correlation ID 2:</label>
+									<input type="text" id="correlationid2" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
-									<label class="control-label" for="coid3">Correlation ID 3:</label>
-									<input type="text" id="coid3" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<label class="control-label" for="correlationid3">Correlation ID 3:</label>
+									<input type="text" id="correlationid3" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
-									 <input type="button" class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_3" value="Search" id="tab_submit">
+									 <button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_3" data-is-path-var='correlationid1'>
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
 								</fieldset>
 							</form>
 						</div>
-					</div>				
+						<div class="col-sm-offset-2 col-sm-8 alert alert-warning text-center" id="tab_err_msg" style="margin-top: 10px; display: none;">
+						  <strong></strong> No data found.
+						</div>	
+					</div>	
+							
 				</div>
 			</div>
 			<span id="scroll_table">&nbsp;</span>
 			<div class=" col-sm-12 text-left hidden" id="data-grid">
-				
 			</div>
 			<div class="col-sm-1 sidenav">
 				<p>
@@ -220,13 +254,29 @@ border: 1px blue solid;
 				</p>
 				
 			</div>
-		</div>
-				
+		</div>			
 	</div>
-<!-- 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer> -->
+	<!-- Modal -->
+	<div class="modal fade" id="xmlModal" tabindex="-1" >
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</span></button>
+	        <h4 class="modal-title" id="xmlModalLabel">Edit XML</h4>
+	      </div>
+	      <div class="modal-body">
+			    <form accept-charset="UTF-8" action="" method="POST">
+			        <textarea class="form-control" id="xml_text" name="text" placeholder="No Data" rows="5"></textarea>
+			        <h6 class="pull-right" id="count_message"></h6>
+			    </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="resubmit-btn" data-trk-id="">Re-Submit Transaction</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 </body>
 </html>
