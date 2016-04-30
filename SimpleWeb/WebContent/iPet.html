@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>iPet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.css">	 -->
+<link rel="stylesheet"
+	href="https://bootswatch.com/spacelab/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+ <script type="text/javascript"
+     src="http://momentjs.com/downloads/moment.js">
+    </script>
+
+ <script type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/collapse.js">
+    </script>
+ <script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <script type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
+    </script>
+<script
+	src="./js/iPet.js"></script>
+	<script
+	src="./js/iPet_constants.js"></script>
+<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js">
+</script>
+<script   src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js">
+</script>
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+/*   div{
+border: 1px red solid;
+} */
+/* fieldset{
+border: 1px blue solid;
+} */
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 450px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;	
+	height: 100%;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.tab-section-border{
+	border-right: 1px #dddddd solid;
+	border-left: 1px #dddddd solid;
+	border-bottom: 1px #dddddd solid;
+}
+.tab-padd-vert{
+	padding: 10px 0px 2px 0px;
+}
+.input-margin-horiz{	
+	margin: 0px 10px 0px 10px;
+}
+.submit-btn-size{
+	width: 12em;  height: 3em;
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+    -moz-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+@-moz-keyframes spin2 {
+  from { -moz-transform: rotate(0deg);}
+  to { -moz-transform: rotate(360deg);}
+}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<strong><a class="navbar-brand " href="#">iPet</a></strong>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Search</a></li>
+					<li><a href="#">My Transactions</a></li>
+					<li><a href="#">Admin</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+							Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid text-center" style="margin-top: 50px;">
+		<div class="row content">
+			<div class="col-sm-1 sidenav">
+				<p>
+					<a href="#"></a>
+				</p>
+				
+			</div>
+			<div class="col-sm-10 text-left tab-section-border ">
+				<h1>Search Transactions</h1>
+				<!-- TABS AND SECTIONS -->
+				<div class="text-left">
+					<!-- Search by Tabs heading -->
+					<div class=" col-sm-offset-1 col-sm-10 text-left">
+						<ul class="nav nav-tabs" id="sbTabs">
+							<li class="active" data-section-id="sbDT_div"><a href="#">Date</a></li>
+							<li data-section-id="sbTX_div"><a href="#">Transaction ID</a></li>
+							<li data-section-id="sbCORR_div"><a href="#">Correlation ID</a></li>
+						</ul>
+					</div>
+				
+					<div id="sbSections" style="height: 250px; padding-top: 2em;" class="col-sm-offset-1 col-sm-10">
+						<!-- Search by date section -->
+						<div id="sbDT_div" class="col-sm-offset-1 col-sm-10 " >
+							<form class="col-sm-offset-2">
+								<fieldset class="form-inline tab-padd-vert">
+									<label class="control-label" for="frmDt">From Date:</label>
+									<div class='input-group date datetimepicker_date'>
+										<input type="text" id="frmDt" class="form-control datetimepicker_date" placeholder="MM/DD/YYYY" />
+										<span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+				                    </div>
+				                    <div class='input-group date datetimepicker_time'>
+										<input type="text" id="frmtime" class="form-control datetimepicker_time" placeholder="HH:MM:SS" />
+										<span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-time"></span>
+					                    </span>
+				                    </div>
+								</fieldset>								
+								<fieldset class="form-inline tab-padd-vert">
+									<label class="control-label" for="frmDt">To Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<div class='input-group date datetimepicker_date'>
+										<input type="text" id="toDt" class="form-control datetimepicker_date" placeholder="MM/DD/YYYY" />
+										<span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+				                    </div>
+				                    <div class='input-group date datetimepicker_time'>
+										<input type="text" id="totime" class="form-control datetimepicker_time" placeholder="HH:MM:SS" />
+										<span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-time"></span>
+					                    </span>
+				                    </div>
+								</fieldset>
+								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
+								 	<button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_1">
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
+								</fieldset>
+							</form>
+						</div>
+						<!-- Search by TX id section -->
+						<div id="sbTX_div" class="col-sm-offset-1 col-sm-10 hidden" style="padding-top: 25px;">
+							<form class="col-sm-offset-2">
+								<fieldset class="form-inline col-sm-10 tab-padd-vert">
+									<label for="trackingid">Transaction ID:</label>
+									<input type="text" id='trackingid' class="form-control input-margin-horiz" placeholder="Enter Transaction ID here" size="40" />
+								</fieldset>
+								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
+									<button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_2" data-is-path-var='trackingid'>
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
+								</fieldset>
+							</form>
+						</div>
+						
+						<!-- Search by corelation ID section -->
+						<div id="sbCORR_div" class="col-sm-offset-1 col-sm-10 hidden">
+							<form class="col-sm-offset-2">
+								<fieldset class="form-inline col-sm-10 tab-padd-vert">
+									<label class="control-label" for="correlationid1">Correlation ID 1:</label>
+									<input type="text" id="correlationid1" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+								<fieldset class="form-inline col-sm-10 tab-padd-vert">
+									<label class="control-label" for="correlationid2">Correlation ID 2:</label>
+									<input type="text" id="correlationid2" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+								<fieldset class="form-inline col-sm-10 tab-padd-vert">
+									<label class="control-label" for="correlationid3">Correlation ID 3:</label>
+									<input type="text" id="correlationid3" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
+									 <button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_3" data-is-path-var='correlationid1'>
+								 		<span class="sub_tog" >Search</span>
+										<span class="sub_tog" style="display: none;"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>&nbsp;&nbsp;&nbsp;Loading...</span>
+									</button>
+								</fieldset>
+							</form>
+						</div>
+						<div class="col-sm-offset-2 col-sm-8 alert alert-warning text-center" id="tab_err_msg" style="margin-top: 10px; display: none;">
+						  <strong></strong> No data found.
+						</div>	
+					</div>	
+							
+				</div>
+			</div>
+			<span id="scroll_table">&nbsp;</span>
+			<div class=" col-sm-12 text-left hidden" id="data-grid">
+			</div>
+			<div class="col-sm-1 sidenav">
+				<p>
+					<a href="#"></a>
+				</p>
+				
+			</div>
+		</div>			
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="xmlModal" tabindex="-1" >
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</span></button>
+	        <h4 class="modal-title" id="xmlModalLabel">Edit XML</h4>
+	      </div>
+	      <div class="modal-body">
+			    <form accept-charset="UTF-8" action="" method="POST">
+			        <textarea class="form-control" id="xml_text" name="text" placeholder="No Data" rows="5"></textarea>
+			        <h6 class="pull-right" id="count_message"></h6>
+			    </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="resubmit-btn" data-trk-id="">Re-Submit Transaction</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</body>
+</html>
