@@ -53,6 +53,15 @@ var events_register = {
 			});
 	},
 	
+	logout : function(){
+		$('#logout').on('click', function(){
+	
+			sessionStorage.removeItem('auth');
+			window.location = './login.html';
+		});
+	},
+	
+	
 };
 
 var view_actions = {
@@ -64,7 +73,7 @@ var view_actions = {
 		},
 		
 		populateGrid : function(json){
-			json = CONSTANTS.json1;
+//			json = CONSTANTS.json1;
 			//populate header
 			var tbl, header='', body='';
 
@@ -126,7 +135,7 @@ var view_actions = {
 		},
 		
 		populate_modal : function(json){
-			json = CONSTANTS.xml1;
+//			json = CONSTANTS.xml1;
 			if(typeof json == 'undefined' || json.length == 0){
 				return;
 			}
@@ -246,7 +255,7 @@ var api_calls ={
 			
 			get : function(url, data, successCB){
 //				$.getJSON(url, data, successCB);
-				successCB();
+//				successCB();
 				$.ajax({
 					  url: url,
 					  dataType: 'json',
@@ -257,7 +266,7 @@ var api_calls ={
 					});
 			},
 			post : function(url, data, successCB){
-				successCB();
+//				successCB();
 				$.ajax({
 					  url: url,
 					  dataType: 'json',
@@ -280,4 +289,5 @@ $(document).ready(function(){
 	events_register.tab_datepicker();//register the date picker events
 	events_register.ajax_error();//Register global ajax error handler
 	events_register.resubmit();//Register resubmit
+	events_register.logout();
 });

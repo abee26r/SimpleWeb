@@ -17,6 +17,12 @@
 <script	src="./js/iPet_constants.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js"></script>
+<script>
+	var chk = sessionStorage.getItem('auth');
+	if(typeof chk == 'undefined' || chk =='' || chk != 'authenticated'){
+		window.location ='./login.html';
+	}
+</script>
 <style>
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
@@ -109,7 +115,7 @@ border: 1px blue solid;
 					<li><a href="#">Help</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+					<li><a href="#" id='logout'><span class="glyphicon glyphicon-log-out"></span>
 							Logout</a></li>
 				</ul>
 			</div>
