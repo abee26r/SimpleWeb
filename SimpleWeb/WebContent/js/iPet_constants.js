@@ -138,4 +138,12 @@ var req_objects = {
 		correlationid2 : '',//Optional
 		correlationid3 : '',//Optional
 	},
+
+	resubmit_request : {
+		
+		   tracking_id: '',	
+		   payload: '',		  
+		   flow_name:'SIDW'
+		   
+		}
 };

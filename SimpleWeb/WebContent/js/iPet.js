@@ -1,12 +1,3 @@
-$(document).ready(function(){
-	
-	events_register.prevent_submit();//prevent all submit
-	events_register.tabs();//register tabs click actions
-	events_register.tab_submit();//register submit buttons
-	events_register.tab_datepicker();//register the date picker events
-	events_register.ajax_error();//Register global ajax error handler
-});
-
 //Object to encapsulate all event registrations
 var events_register = {
 		
@@ -49,7 +40,7 @@ var events_register = {
 	
 	resubmit : function(){
 		$('#resubmit-btn').on('click', function(){
-			api_calls.resubmit_svc(this);
+			api_calls.resubmit_svc(this, $('#xml_text').val());
 		});
 	},
 	
@@ -193,6 +184,8 @@ var logic = {
 		}else if(key == CONSTANTS.URL_SVC_3){
 			obj = req_objects.corr_request;
 			
+		}else if(key == CONSTANTS.URL_SVC_5){
+			obj = req_objects.resubmit_request;
 		}
 		
 		return obj;
@@ -239,9 +232,13 @@ var api_calls ={
 			api_calls.private.get(svc_url, '', view_actions.populate_modal);
 		},
 		
-		resubmit_svc : function(btn){
+		resubmit_svc : function(btn, xml){
+			var trkId = $(btn).data('trk-id');
+			var xmldata = logic.req_obj_factory(CONSTANTS.URL_SVC_5); 
+			xmldata.tracking_id = trkId;
+			xmldata.payload = xml;
 			
-			api_calls.private.get(CONSTANTS.URL_SVC_5(data), '', view_actions.populate_modal);
+			api_calls.private.post(CONSTANTS.URL_SVC_5(trkId), JSON.stringify(xmldata), function(){alert('Transaction Resubmitted.');});
 		},
 		
 		//Consider this as private method and dont use from outside api_calls
@@ -249,11 +246,22 @@ var api_calls ={
 			
 			get : function(url, data, successCB){
 //				$.getJSON(url, data, successCB);
-//				successCB();
+				successCB();
 				$.ajax({
 					  url: url,
 					  dataType: 'json',
 					  method : 'GET',
+					  data: data,
+					  success: successCB,
+					  timeout: 10000 
+					});
+			},
+			post : function(url, data, successCB){
+				successCB();
+				$.ajax({
+					  url: url,
+					  dataType: 'json',
+					  method : 'POST',
 					  data: data,
 					  success: successCB,
 					  timeout: 10000 
@@ -264,3 +272,12 @@ var api_calls ={
 		
 };
 
+$(document).ready(function(){
+	
+	events_register.prevent_submit();//prevent all submit
+	events_register.tabs();//register tabs click actions
+	events_register.tab_submit();//register submit buttons
+	events_register.tab_datepicker();//register the date picker events
+	events_register.ajax_error();//Register global ajax error handler
+	events_register.resubmit();//Register resubmit
+});

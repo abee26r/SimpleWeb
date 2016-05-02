@@ -4,38 +4,19 @@
 <title>iPet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.css">	 -->
-<link rel="stylesheet"
-	href="https://bootswatch.com/spacelab/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="screen"
-     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-<link rel="stylesheet" type="text/css" media="screen"
-     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
- <script type="text/javascript"
-     src="http://momentjs.com/downloads/moment.js">
-    </script>
-
- <script type="text/javascript"
-     src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/collapse.js">
-    </script>
- <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <script type="text/javascript"
-     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
-    </script>
-<script
-	src="./js/iPet.js"></script>
-	<script
-	src="./js/iPet_constants.js"></script>
-<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js">
-</script>
-<script   src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js">
-</script>
+<link rel="stylesheet"	href="https://bootswatch.com/spacelab/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/collapse.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script	src="./js/iPet.js"></script>
+<script	src="./js/iPet_constants.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js"></script>
 <style>
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
@@ -110,7 +91,6 @@ border: 1px blue solid;
 </style>
 </head>
 <body>
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header ">
@@ -124,9 +104,9 @@ border: 1px blue solid;
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Search</a></li>
-					<li><a href="#">My Transactions</a></li>
+					<!-- <li><a href="#">My Transactions</a></li>
 					<li><a href="#">Admin</a></li>
-					<li><a href="#">Help</a></li>
+					<li><a href="#">Help</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
@@ -142,7 +122,6 @@ border: 1px blue solid;
 				<p>
 					<a href="#"></a>
 				</p>
-				
 			</div>
 			<div class="col-sm-10 text-left tab-section-border ">
 				<h1>Search Transactions</h1>
@@ -190,6 +169,10 @@ border: 1px blue solid;
 					                        <span class="glyphicon glyphicon-time"></span>
 					                    </span>
 				                    </div>
+								</fieldset>
+								<fieldset class="form-inline tab-padd-vert">
+									<label for="appname">App Name:</label>
+									<input type="text" id='appname' class="form-control " placeholder="Enter application name here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
 								 	<button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_1">
@@ -257,25 +240,29 @@ border: 1px blue solid;
 		</div>			
 	</div>
 	<!-- Modal -->
-	<div class="modal fade" id="xmlModal" tabindex="-1" >
-	  <div class="modal-dialog modal-lg">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</span></button>
-	        <h4 class="modal-title" id="xmlModalLabel">Edit XML</h4>
-	      </div>
-	      <div class="modal-body">
-			    <form accept-charset="UTF-8" action="" method="POST">
-			        <textarea class="form-control" id="xml_text" name="text" placeholder="No Data" rows="5"></textarea>
-			        <h6 class="pull-right" id="count_message"></h6>
-			    </form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary" id="resubmit-btn" data-trk-id="">Re-Submit Transaction</button>
-	      </div>
-	    </div>
-	  </div>
+	<div class="modal fade" id="xmlModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						&times;</span>
+					</button>
+					<h4 class="modal-title" id="xmlModalLabel">Edit XML</h4>
+				</div>
+				<div class="modal-body">
+					<form accept-charset="UTF-8" action="" method="POST" >
+						<textarea class="form-control" id="xml_text" name="text"
+							placeholder="No Data" rows="5" style="height: 550px;"></textarea>
+						<h6 class="pull-right" id="count_message"></h6>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="resubmit-btn"
+						data-trk-id="">Re-Submit Transaction</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
