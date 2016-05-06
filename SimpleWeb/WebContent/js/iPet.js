@@ -116,7 +116,7 @@ var view_actions = {
 			tbl = CONSTANTS.tbl(header, body);			
 			$('#data-grid').append(tbl).removeClass('hidden');
 			    $('html, body').animate({
-			        scrollTop: $("#data-grid").offset().top - 60
+			        scrollTop: $("#data-grid").offset().top - 90
 			    }, 1000);
 			
 			//register click events
@@ -156,8 +156,7 @@ var logic = {
 	},
 	
 	dateFormat : function(_date, _time){
-		var monthNames = [
-		                  "JAN", "FEB", "MAR",
+		var monthNames = ["X", "JAN", "FEB", "MAR",
 		                  "APR", "MAY", "JUN", "JUL",
 		                  "AUG", "SEP", "OCT",
 		                  "NOV", "DEC"

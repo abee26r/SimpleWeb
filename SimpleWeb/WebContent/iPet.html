@@ -18,10 +18,10 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js"></script>
 <script>
-	var chk = sessionStorage.getItem('auth');
+	/* var chk = sessionStorage.getItem('auth');
 	if(typeof chk == 'undefined' || chk =='' || chk != 'authenticated'){
 		window.location ='./login.html';
-	}
+	} */
 </script>
 <style>
 /* Remove the navbar's default margin-bottom and rounded borders */
@@ -80,6 +80,10 @@ border: 1px blue solid;
     -webkit-animation: spin2 .7s infinite linear;
     -moz-animation: spin2 .7s infinite linear;
 }
+.ipet_header{
+	background-image: url("./img/jumbo_back.PNG");
+    background-repeat: repeat-y;
+}
 
 @-webkit-keyframes spin2 {
     from { -webkit-transform: rotate(0deg);}
@@ -99,37 +103,45 @@ border: 1px blue solid;
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
-			<div class="navbar-header ">
+			<div class="navbar-header " style="border-right: 1px solid #4C6C8E;">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#myNavbar">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<strong><a class="navbar-brand " href="#">iPet</a></strong>
+				<strong><a class="navbar-brand " href="#" style="font-size: 42px; padding-top: 15px;">iPET</a></strong>
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
+			<div class="collapse navbar-collapse" id="myNavbar" >
+				<ul class="nav navbar-nav" style="padding-top: 25px;">
+					<li>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+						role="button" aria-haspopup="true" aria-expanded="false">Configure <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+					    	<li><a href="#">Business Rules</a></li>
+					    	<li><a href="#">Transactions</a></li>
+					    </ul>
+					</li>
 					<li class="active"><a href="#">Search</a></li>
-					<!-- <li><a href="#">My Transactions</a></li>
-					<li><a href="#">Admin</a></li>
-					<li><a href="#">Help</a></li> -->
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Analog</a></li>
 					<li><a href="./login.html" id='logout'><span class="glyphicon glyphicon-log-out"></span>
 							Logout</a></li>
+					<!-- <li><a href="#">Help</a></li> -->
+				</ul>
+				<ul class="nav navbar-nav navbar-right" style="padding-top: 0px;">
+					<li><a href="#"><img alt="" src="./img/cts_icon.png" class="img-rounded" width="40" height="40"><sub><i>Powered by Cognizant IPM Mulesoft COE.</i></sub></a></li>					
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="container-fluid text-center" style="margin-top: 50px;">
+	<div class="container-fluid text-center" style="margin-top: 70px;">
 		<div class="row content">
 			<div class="col-sm-1 sidenav">
 				<p>
 					<a href="#"></a>
 				</p>
 			</div>
-			<div class="col-sm-10 text-left tab-section-border ">
+			<div class="col-sm-10 text-left tab-section-border " style="margin-bottom: 3em;">
 				<h1>Search Transactions</h1>
 				<!-- TABS AND SECTIONS -->
 				<div class="text-left">
@@ -142,7 +154,7 @@ border: 1px blue solid;
 						</ul>
 					</div>
 				
-					<div id="sbSections" style="height: 250px; padding-top: 2em;" class="col-sm-offset-1 col-sm-10">
+					<div id="sbSections" style="padding: 2em 0 2em 0;" class="col-sm-offset-1 col-sm-10">
 						<!-- Search by date section -->
 						<div id="sbDT_div" class="col-sm-offset-1 col-sm-10 " >
 							<form class="col-sm-offset-2">
@@ -206,19 +218,76 @@ border: 1px blue solid;
 						
 						<!-- Search by corelation ID section -->
 						<div id="sbCORR_div" class="col-sm-offset-1 col-sm-10 hidden">
-							<form class="col-sm-offset-2">
+							<form class="col-sm-offset-2" id="corr_form">
+								<!-- Input will be appended here using JS -->
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
 									<label class="control-label" for="correlationid1">Correlation ID 1:</label>
-									<input type="text" id="correlationid1" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<input type="text" id="correlationid1" class="form-control input-margin-horiz " placeholder="Enter Correlation ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
 									<label class="control-label" for="correlationid2">Correlation ID 2:</label>
-									<input type="text" id="correlationid2" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<input type="text" id="correlationid2" class="form-control input-margin-horiz " placeholder="Enter Correlation ID here" size="40" />
 								</fieldset>
 								<fieldset class="form-inline col-sm-10 tab-padd-vert">
-									<label class="control-label" for="correlationid3">Correlation ID 3:</label>
-									<input type="text" id="correlationid3" class="form-control input-margin-horiz" placeholder="Enter Correlation ID here" size="40" />
+									<label class="control-label" for="correlationid3">Correlation
+										ID 3:</label>&nbsp;<input type="text" id="correlationid3"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" /> 
+										<button id="add-corr" class="btn btn-info more-corr-hid" style="width: 6em;" onclick="$('.more-corr-hid').toggle();">
+											<span><span class="glyphicon-plus"></span></span> MORE 
+										</button>
 								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid4">Correlation
+										ID 4:</label>&nbsp;<input type="text" id="correlationid4"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid5">Correlation
+										ID 5:</label>&nbsp;<input type="text" id="correlationid5"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid6">Correlation
+										ID 6:</label>&nbsp;<input type="text" id="correlationid6"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid7">Correlation
+										ID 7:</label>&nbsp;<input type="text" id="correlationid7"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid8">Correlation
+										ID 8:</label>&nbsp;<input type="text" id="correlationid8"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid9">Correlation
+										ID 9:</label>&nbsp;<input type="text" id="correlationid9"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+								<fieldset class="form-inline col-sm-10 tab-padd-vert more-corr-hid" style="display: none;">
+									<label class="control-label" for="correlationid10">Correlation
+										ID 10:</label><input type="text" id="correlationid10"
+										class="form-control input-margin-horiz "
+										placeholder="Enter Correlation ID here" size="40" />
+								</fieldset>
+
+
 								<fieldset class="form-inline col-sm-10 tab-padd-vert col-sm-offset-3">
 									 <button class="btn btn-info submit-btn-size tab_submit" data-svc-url="URL_SVC_3" data-is-path-var='correlationid1'>
 								 		<span class="sub_tog" >Search</span>
