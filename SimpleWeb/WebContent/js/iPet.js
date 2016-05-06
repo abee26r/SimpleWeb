@@ -134,7 +134,7 @@ var view_actions = {
 			$('#tab_err_msg').hide();
 		},
 		
-		populate_modal : function(json){
+		populate_modal :  function(json){
 			json = CONSTANTS.xml1;
 			if(typeof json == 'undefined' || json.length == 0){
 				return;
@@ -237,7 +237,7 @@ var api_calls ={
 		xmlServiceCall : function(data){
 			
 			var svc_url = CONSTANTS.URL_SVC_4(data);
-			api_calls.private.get(svc_url, '', view_actions.populate_modal);
+			api_calls.private.get(svc_url, null, view_actions.populate_modal);
 		},
 		
 		resubmit_svc : function(btn, xml){
@@ -259,6 +259,7 @@ var api_calls ={
 					  url: url,
 					  dataType: 'json',
 					  method : 'GET',
+					  contentType: "application/json",
 					  data: data,
 					  success: successCB,
 					  timeout: 10000 
@@ -270,6 +271,7 @@ var api_calls ={
 					  url: url,
 					  dataType: 'json',
 					  method : 'POST',
+					  contentType: "application/json",
 					  data: data,
 					  success: successCB,
 					  timeout: 10000 
