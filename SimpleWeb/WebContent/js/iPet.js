@@ -95,11 +95,13 @@ var view_actions = {
 			
 			//populate body
 			$.each(json, function(index, val){
-				var row = '', err = false, count = 0;
+				var row = '', err = false, count = 0, resub = false;
 				$.each(keys, function(i, v){
 					count++;
 					row = row + CONSTANTS.td(val[v]);
-					if(count == 7 && val[v] == 'ERROR'){
+					if(count == 1 && val[v] == 'RESUBMITTED'){
+						resub = true;
+					}else if(count == 7 && val[v] == 'ERROR' && !resub){
 						err = true;
 					}
 				});
