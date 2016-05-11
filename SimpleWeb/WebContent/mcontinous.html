@@ -22,11 +22,11 @@
 	<div class="jumbotron heade form-inline">
 		<div class="col-sm-1">
 			<img class="center-block" alt="Cognizant" src="./img/cts_icon.png"
-				style="height: 80px;">
+				style="height: 80px; border-right: 1px gray solid; padding-right: 20px;">
 		</div>
-		<div class="col-sm-11">
-			<img class="center-block" alt="MContinuous" src="./img/mc_txt2.png"
-				style="height: 80px;">
+		<div class="col-sm-11" style="">
+			<img class="center-block pull-left" alt="MContinuous" src="./img/mc_txt2.png"
+				style="height: 45px; margin: 18px 0 0 0px; padding: 0; ">
 		</div>
 		
 	</div>
@@ -43,11 +43,30 @@
 						<li><a href="#">Create Job</a></li>
 					</ul></li>
 				<li class="divider"></li>
-				<li><a href="#">Build History</a></li>
+				<li class="dropdown-submenu"><a tabindex="-1" href="#">Build History</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Scheduled Jobs</a></li>
+						<li><a href="#">AdHoc Jobs</a></li>
+					</ul></li>
 				<li class="divider"></li>
-				<li><a href="#">Notification</a></li>
+				<li class="dropdown-submenu"><a tabindex="-1" href="#">Notification</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Group</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Add Server</a></li>
+								<li><a href="#">Stop Server</a></li>
+								<li><a href="#">Start/Stop App</a></li>
+							</ul>
+						</li>
+						<li><a href="#">People</a></li>
+					</ul></li>
 				<li class="divider"></li>
-				<li><a href="#">Server Maintenance</a></li>
+				<li class="dropdown-submenu"><a tabindex="-1" href="#">Server Maintenance</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Add Server</a></li>
+						<li><a href="#">Stop Server</a></li>
+						<li><a href="#">Start/Stop App</a></li>
+					</ul></li>
 				<li class="divider"></li>
 			</ul>
 		</div>
@@ -56,9 +75,8 @@
 		</div>
 	</div>
 </body>
-<footer class="footer text-center navbar-fixed-bottom tshadow">
+<footer class="footer text-center navbar-fixed-bottom heade foote">
 	<div class="container ">
-		<hr>
 		<p class="text-muted">Powered by Cognizant IPM Mulesoft COE</p>
 	</div>
 </footer>
