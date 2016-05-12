@@ -1,0 +1,80 @@
+<div>
+	<h3 style="margin-top: 2px;"><strong>Manage Groups</strong></h3>
+	
+	<br>
+	<div class="content">
+		<button id="addgrpbtn" type="button" class="btn btn-info" onclick="$('#grpModal').modal();"><icon class="glyphicon glyphicon-plus"/>&nbsp;&nbsp; Add Group </button>
+	</div><br>
+	
+		<table class="table table-hover table-bordered  text-left">
+			<tr>
+				<th>Group Name</th>
+				<th>Owner</th>
+				<th>Email</th>
+				<th>Type</th>
+				<th>Description</th>
+				<th>Status</th>
+				<th>Edit</th>
+			</tr>
+			<tr>
+				<td>User1</td>
+				<td>Last1</td>
+				<td>jo@cts.com</td>
+				<td>*****</td>
+				<td>Dev</td>
+				<td>User</td>
+				<td align="center"><span><icon class="glyphicon glyphicon-pencil"/> </span> &nbsp;&nbsp;<span><icon class="glyphicon glyphicon-remove"/> </span></td>
+			</tr>
+			
+		</table>
+</div>
+<!-- Modal -->
+	<div class="modal fade" id="grpModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						&times;</span>
+					</button>
+					<h4 class="modal-title" id="grpModalLabel"><strong>Add Group</strong></h4>
+				</div>
+				<div class="modal-body">
+					<div class="container col-sm-offset-1">
+					<form accept-charset="UTF-8" action="" method="POST" >
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Group Name:</label>
+						   <input type="text" class="form-control col-sm-9  input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Owner :</label>
+						  <input type="text" class="form-control col-sm-9  input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Type :</label>
+						  <select class="form-control col-sm-9 input-sm"  id="role" style="min-width: 200px;">
+							  	<option selected="selected">- Select One -</option>
+							  	<option>Notification</option>
+							  	<option>Admin</option>
+							  	<option>Master</option>
+							  </select>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Description :</label>
+						  <input type="text" class="form-control col-sm-9 input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Status :</label>
+						  <input type="password" class="form-control col-sm-9 input-sm" id="groupid" />
+						</fieldset>
+					</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info" id="adduser-btn">Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+</script>
