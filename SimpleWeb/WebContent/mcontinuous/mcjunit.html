@@ -1,0 +1,42 @@
+<div>
+	<h3 style="margin-top: 2px;"><strong>Create Job : Step 3</strong></h3>
+	<div class="panel panel-default text-left">
+	  <div class="panel-heading"><strong>Unit Testing and Build</strong></div>
+	  <div class="panel-body ">
+
+			<table class="table table-hover table-bordered  text-left">
+				<tr>
+					<th>Select</th>
+					<th>Application</th>
+					<th>Status</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="checkbox" /></td>
+					<td>app1/master</td>
+					<td>Yet to start</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="checkbox" /></td>
+					<td>app1/master</td>
+					<td>Yet to start</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" class="checkbox" /></td>
+					<td>app1/master</td>
+					<td>Yet to start</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+	
+	
+	<div class="col-sm-offset-5">
+		<button type="button" class="btn btn-info">Run JUnit & Build</button>
+		<button id="cjnxt3" type="button" class="btn btn-info">Next &nbsp;&nbsp;<icon class="glyphicon glyphicon-forward"/> </button>
+	</div>
+	
+</div>
+<script>
+	$('#cjnxt3').on('click', VIEW.disp_deploy);
+</script>
