@@ -34,10 +34,14 @@ var VIEW = {
 	
 	disp_serverList : function(){
 		$('#serverlist').removeClass('hidden');
+		$('#div_deploy').removeClass('hidden');
 	},
 	
 	disp_deploystats : function(){
 		$('#deploystatus').removeClass('hidden');
+	},
+	mockJunit : function(){
+		
 	}
 };
 
@@ -76,5 +80,35 @@ var CONTROLLER ={
 
 $(document).ready(function(){
 	EVENTS.menu_actions();
-	/*$('#test').trigger('click');*/
+	$('#test').trigger('click');
 });
+
+if(testrun)
+var MOCK = {
+		validate_load_op : [
+		  "cntrct_1.0/branch",
+		  "prov_1.0/branch2",
+		  "myapp3/branch3",
+		  "myapp4/barnch4"
+		],
+
+		perf_validate_op : [ { "message": "Success Message", "status": "Succeess", "report": null, "appName": "myApp1", "branchID": "master" }, { "message": "Failed - Error Message", "status": "Failed", "report": null, "appName": "myApp2", "branchID": "branchId" }],
+		
+		junit_op : [{
+		                "message": "Success Message",
+		                "status": "Succeess",
+		                "report": null,
+		                "appName": "myApp1",
+		                "branchID": "master"
+		              },
+		              {
+		                "message": "Failed - Error Message",
+		                "status": "Failed",
+		                "report": null,
+		                "appName": "myApp2",
+		                "branchID": "branchId"
+		              }
+		            ],
+		            
+
+};

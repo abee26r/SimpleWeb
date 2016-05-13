@@ -1,0 +1,89 @@
+<div>
+	<h3 style="margin-top: 2px;"><strong>Manage Repository - CVS</strong></h3>
+	
+	<br>
+	<div class="content">
+		<button id="addusermodal-btn" type="button" class="btn btn-info" onclick="$('#repoModal').modal();"><icon class="glyphicon glyphicon-plus"/>&nbsp;&nbsp; Add Repository </button>
+	</div><br>
+	
+		<table class="table table-hover table-bordered  text-left">
+			<tr>
+				<th>Repository Name</th>
+				<th>URI</th>
+				<th>Host</th>
+				<th>Repository</th>
+				<th>Protocol</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Edit</th>
+			</tr>
+			<tr>
+				<td>serv1 </td>
+				<td>app/loc/uri</td>
+				<td>server1.app.com</td>
+				<td>/git/app/repo.git</td>
+				<td>HTTP</td>
+				<td>JohnDoe</td>
+				<td>**********</td>
+				<td align="center"><span><icon class="glyphicon glyphicon-pencil"/> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><icon class="glyphicon glyphicon-remove"/> </span></td>
+			</tr>
+			
+		</table>
+</div>
+<!-- Modal -->
+	<div class="modal fade" id="repoModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						&times;</span>
+					</button>
+					<h4 class="modal-title" id="repoModalLabel"><strong>Add Repo</strong></h4>
+				</div>
+				<div class="modal-body">
+					<div class="container col-sm-offset-1">
+					<form accept-charset="UTF-8" action="" method="POST" >
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="grpList">Name :</label>
+						  <input type="text" class="form-control col-sm-9  input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">URI :</label>
+						  <input type="text" class="form-control col-sm-9  input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Host :</label>
+						  <input type="text" class="form-control col-sm-9  input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Repository Path :</label>
+						  <input type="text" class="form-control col-sm-9 input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Protocol :</label>
+						  <select class="form-control  input-sm"  id="grpList" style="min-width: 200px;">
+						  	<option selected="selected">- Select One -</option>
+						  	<option>HTTP</option>
+						  	<option>HTTPS</option>
+						  </select>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Username :</label>
+						  <input type="text" class="form-control col-sm-9 input-sm" id="groupid" size="50"/>
+						</fieldset>
+						<fieldset class="form-group form-inline col-sm-8 " style="">
+						  <label class="control-label col-sm-3"  for="desc">Password :</label>
+						  <input type="password" class="form-control col-sm-9 input-sm" id="groupid" />
+						</fieldset>
+					</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info" id="adduser-btn">Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+</script>
