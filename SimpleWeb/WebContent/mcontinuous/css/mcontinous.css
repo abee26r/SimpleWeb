@@ -18,7 +18,9 @@ th{
 
 	background-image: linear-gradient(180deg, #FFFFFF, #e5e5e5) !important;
 }
-
+.panel-heading{
+	font-size: 18px;
+}
 /* Header Styles */
 .heade {
 	height: 60px;
@@ -45,8 +47,46 @@ input[type="checkbox"]{
 table> tr > td > input[type="checkbox"]{
 	margin: 0 auto;
 }
-/* Vertical Navbar styles - START*/
-.dropdown-submenu {
+
+.panel-primary,  .panel-heading{
+	}
+
+/* nEW nAV BAR STYLE */
+.menu-bg{
+	background-color: #3f97b5 !important;
+	
+}
+.menu-shadow{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+#navPanel {
+    max-width:300px;
+    }
+    
+.panel-title > a {
+    color: inherit;
+    display:block;
+    text-decoration:none;
+} 
+
+.panel-collapse > .panel-body {
+    padding: 0px;
+}
+.list-group {
+    padding-left: 0;
+    margin-bottom: 0px;
+}
+.dup-plus:before {
+   content: "\2212";
+}
+
+.collapsed .dup-plus:before {
+    content: "\2b";
+}
+
+/* old Vertical Navbar styles - START*/
+/* .dropdown-submenu {
 	position: relative;
 	z-index: 99;
 }
@@ -98,4 +138,4 @@ table> tr > td > input[type="checkbox"]{
 	-moz-border-radius: 6px 0 6px 6px;
 	border-radius: 6px 0 6px 6px;
 }
-/* Vertical Navbar styles - END*/
+Vertical Navbar styles - END*/

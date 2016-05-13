@@ -1,0 +1,154 @@
+<div>
+	<h3 style="margin-top: 2px;"><strong>Schedule Job</strong></h3>
+	<div class="panel panel-default text-left">
+	  <div class="panel-heading"><strong>Job Details</strong></div>
+	  <div class="panel-body col-sm-offset-2">
+	    <fieldset class="form-inline col-sm-8 " style="">
+			<label class="control-label col-sm-3" for="jobID">Job Identifier :</label>
+			<div class="input-group input-group-sm">
+				<input type="text" id="jobID" class="form-control col-sm-3 " placeholder="Enter Job Identifier" size="40" />
+			  	<span class="input-group-btn">
+			  	<button  class="btn btn-info" id="autogen" onclick="$('#jobID').val((new Date()).getTime());">Generate ID</button>
+			  	</span>			  
+			</div>			
+		</fieldset>
+		
+		<fieldset class="form-group form-inline col-sm-8 " style="">
+			  <label class="control-label col-sm-3"  for="desc">Schedule Type :</label>
+			  <select id="crontype" class="form-control col-sm-9 input-sm" cols="42" id="desc" onchange="VIEW.isCronDisplay()">
+			  	<option value="1" >One Time</option>
+			  	<option value="2">Repeated</option>
+			  </select>
+		</fieldset>
+		
+		<fieldset id="timeSet" class="form-group form-inline col-sm-8" style="">
+			  <label class="control-label col-sm-3"  for="desc">Date Time :</label>
+			  <input type="time" id="onetime" class="form-control col-sm-9 input-sm" placeholder="MM/DD/YYYY hh:mm:ss" />
+		</fieldset>
+		
+		<fieldset id="freqSet" class="form-group form-inline col-sm-8 hidden" style="">
+			  <label class="control-label col-sm-3"  for="desc">Frequency :</label>
+			  <input type="text" id="cron" class="form-control col-sm-9 input-sm" />
+		</fieldset>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default text-left">
+	  <div class="panel-heading "><strong>Tasks</strong></div>
+	  <div class="panel-body col-sm-offset-2">
+	    <fieldset class=" col-sm-2 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> Validate Code</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> Build</label>
+			</div>				
+		</fieldset>
+		<fieldset class=" col-sm-2 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> Code Review</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> Deploy</label>
+			</div>				
+		</fieldset>
+		<fieldset class=" col-sm-2 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> Unit Test</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label>&nbsp;</label>
+			</div>				
+		</fieldset>
+		
+	  </div>
+	</div>
+	
+	<div class="panel panel-default text-left">
+	  <div class="panel-heading"><strong>Deployment Group</strong></div>
+	  <div class="panel-body col-sm-offset-3">
+	    		
+		<fieldset class="form-group form-inline col-sm-8" style="">
+			  <label class="control-label col-sm-3"  for="desc">Environment :</label>
+			  <select class="form-control col-sm-9 input-sm" cols="42" id="envList" onchange="VIEW.disp_serverList()">
+			  	<option selected="selected">- Select One -</option>
+			  	<option>Development</option>
+			  	<option>QA</option>
+			  	<option>Production</option>
+			  	<option>Integration</option>
+			  	<option>Disaster Recovery</option>
+			  </select>
+		</fieldset>
+	  </div>
+	</div>
+	
+	<div id="serverlist" class="panel panel-default text-left hidden">
+	  <div class="panel-heading "><strong>Server List</strong></div>
+	  <div class="panel-body col-sm-offset-2">
+	    <fieldset class=" col-sm-6 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> server1.app.com</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> server2.app.com</label>
+			</div>				
+		</fieldset>
+		<fieldset class=" col-sm-6 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> server3.app.com</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> server4.app.com</label>
+			</div>				
+		</fieldset>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default text-left">
+	  <div class="panel-heading"><strong>Repository</strong></div>
+	  <div class="panel-body col-sm-offset-3">
+	    		
+		<fieldset class="form-group form-inline col-sm-8" style="">
+			  <label class="control-label col-sm-3"  for="desc">Repository :</label>
+			  <select class="form-control col-sm-9 input-sm" cols="42" id="envList" onchange="VIEW.disp_repoList()">
+			  	<option selected="selected">- Select One -</option>
+			  	<option>CVS</option>
+			  	<option>GITHub</option>
+			  	<option>SVN</option>
+			  </select>
+		</fieldset>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default text-left hidden" id="div_applist">
+	  <div class="panel-heading"><strong>Application</strong></div>
+	  <div class="panel-body col-sm-offset-2">
+	    <fieldset class=" col-sm-6 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> app1</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> app2</label>
+			</div>				
+		</fieldset>
+		<fieldset class=" col-sm-6 " style="padding-left: 50px; ">
+	    	<div class="checkbox">
+				<label><input type="checkbox" value=""> app3</label>
+			</div><br><br>
+			<div class="checkbox">
+				<label><input type="checkbox" value=""> app4</label>
+			</div>				
+		</fieldset>
+	  </div>
+	</div>
+	
+	<div class="col-sm-offset-5" id="div_deploy">
+		<button id="cjnxt" type="button" class="btn btn-info">Schedule</button>
+	</div>
+	
+</div>
+<script>
+	$(function() {
+		$("#cron").cronGen();
+	});
+</script>

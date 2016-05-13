@@ -9,7 +9,7 @@ var CONST = {
 
 var EVENTS = {
 	menu_actions : function(){
-		$('div#vMenu').find('*').each(function(){
+		$('div#everythin').find('*').each(function(){
 			if($(this).data('inject')){				
 				$(this).on('click', function(){
 					$('#inject').load($(this).data('inject'));
@@ -22,6 +22,10 @@ var EVENTS = {
 var VIEW = {
 	disp_CodeVal : function(){
 		$('#inject').load('mccodeval.html');
+	},
+	
+	disp_CodeValRes : function(){
+		$('#inject').load('mccodevalres.html');
 	},
 
 	disp_junit : function(){
@@ -39,9 +43,23 @@ var VIEW = {
 	
 	disp_deploystats : function(){
 		$('#deploystatus').removeClass('hidden');
+		$('#deploybtn').text('Generate Report');
 	},
 	mockJunit : function(){
 		
+	},
+	
+	isCronDisplay : function(){
+		if($('#crontype').val() == 1){
+			$('#timeSet').removeClass('hidden');
+			$('#freqSet').removeClass('hidden').addClass(('hidden'));
+		}else{
+			$('#timeSet').removeClass('hidden').addClass(('hidden'));
+			$('#freqSet').removeClass('hidden');
+		}
+	},
+	disp_repoList : function(){
+		$('#div_applist').removeClass('hidden');
 	}
 };
 
@@ -80,7 +98,7 @@ var CONTROLLER ={
 
 $(document).ready(function(){
 	EVENTS.menu_actions();
-	$('#test').trigger('click');
+	/*$('#test').trigger('click');*/
 });
 
 if(testrun)
