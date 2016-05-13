@@ -6,7 +6,7 @@
 		<button id="addusermodal-btn" type="button" class="btn btn-info" onclick="$('#repoModal').modal();"><icon class="glyphicon glyphicon-plus"/>&nbsp;&nbsp; Add Repository </button>
 	</div><br>
 	
-		<table class="table table-hover table-bordered  text-left">
+		<table class="table table-hover table-bordered  text-left"  id="datatbl">
 			<tr>
 				<th>Repository Name</th>
 				<th>URI</th>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-info" id="adduser-btn">Add</button>
+					<button type="button" class="btn btn-info" id="adduser-btn" onclick="VIEW.addFromModal();">Add</button>
 				</div>
 			</div>
 		</div>

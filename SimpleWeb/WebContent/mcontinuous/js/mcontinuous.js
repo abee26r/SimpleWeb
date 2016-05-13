@@ -4,7 +4,9 @@ var CONST = {
 		url_pfx : "http://localhost:8080/ws_iMaven/rest",
 		url_createJob : jQuery.validator.format("/createNewJob/{0}?activity=1&activity=2&activity=3&activity=4"),
 		
-		
+		tr : $.validator.format('<tr>{0}</tr>'),
+		td : $.validator.format('<td>{0}</td>'),
+		td_edit : '<td align="center"><span><icon class="glyphicon glyphicon-pencil"/> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><icon class="glyphicon glyphicon-remove"/> </span></td>',
 };
 
 var EVENTS = {
@@ -16,10 +18,16 @@ var EVENTS = {
 				});
 			}
 		});
-	},	
+	},
+	
 };
 
 var VIEW = {
+	
+	disp_home : function(){
+		$('#inject').load('mchomescreen.html');
+	},	
+		
 	disp_CodeVal : function(){
 		$('#inject').load('mccodeval.html');
 	},
@@ -60,6 +68,27 @@ var VIEW = {
 	},
 	disp_repoList : function(){
 		$('#div_applist').removeClass('hidden');
+	},
+	
+	addFromModal : function(){
+		
+		
+		var data = '';
+		$('.modal').find('input, select').each(function(){
+			
+			if($(this).attr('type') == 'password'){
+				data += CONST.td('**********');
+			}else{
+				data += CONST.td($(this).val());
+			}
+			
+			
+		});
+		
+		data +=CONST.td_edit;
+		data = CONST.tr(data);
+		
+		$('#datatbl').append(data);
 	}
 };
 
@@ -98,6 +127,7 @@ var CONTROLLER ={
 
 $(document).ready(function(){
 	EVENTS.menu_actions();
+	VIEW.disp_home();
 	/*$('#test').trigger('click');*/
 });
 
