@@ -11,7 +11,6 @@
 <script	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
 <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script	src="./js/cronGen.js"></script>
-
 <title>Cognizant - MContinuous</title>
 </head>
 <body style="margin-bottom: 100px;">
@@ -21,39 +20,41 @@
 			<img class="center-block" alt="Cognizant" src="./img/cts_icon.png"
 				style="height: 40px;  padding-right: 0px;">
 		</div>
-		<div class="col-sm-11" style="">
+		<div class="col-sm-9" style="">
 			<img class="center-block pull-left" alt="MContinuous" src="./img/mc_txt2.png"
 				style="height: 40px; margin: 0px 0 0 0px; padding: 0; ">
 		</div>
-		
+		<div class="col-sm-2 "  style="margin-top: 20px ;">
+			<a href="./mclogin.html" class="pull-right text-muted" style="font-size: 16px;" ><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+		</div>
 	</div>
 	<!-- body -->
-	<div class="container-fluid content text-left">
-		<div class="form-inline">
-			<div id="vMenu" class="col-sm-1">
+	<div class="container-fluid content text-left" style="padding-left: 0; margin-left: 2px;" >
+		<div class="form-inline" id="everythin">
+			<!-- <div id="vMenu" class="col-sm-2">
 				
-			<!-- left nav -->
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"
+			left nav
+				<ul class="" role="menu" aria-labelledby="dropdownMenu"
 					style="display: block; position: static; margin-bottom: 5px;">
 					<li class="divider"></li>
-					<li class="dropdown-submenu"><a tabindex="-1" href="#">Jobs</a>
-						<ul class="dropdown-menu">
+					<li class=""><a tabindex="-1" href="#">Jobs</a>
+						<ul class="">
 							<li><a href="#" data-inject="mccronjob.html">Schedule Job</a></li>
 							<li><a href="#" data-inject="mcnewjob.html" >Create Job</a></li>
 						</ul></li>
 					<li class="divider"></li>
-					<li class="dropdown-submenu"><a tabindex="-1" href="#">Build History</a>
-						<ul class="dropdown-menu">
+					<li class=""><a tabindex="-1" href="#">Build History</a>
+						<ul class="">
 							<li><a href="#" data-inject="mccronlist.html" >Scheduled Jobs</a></li>
 							<li><a href="#" data-inject="mcadhoclist.html" >AdHoc Jobs</a></li>
 						</ul></li>
 					<li class="divider"></li>
-					<li class="dropdown-submenu"><a tabindex="-1" href="#">Configuration</a>
-						<ul class="dropdown-menu">
+					<li class=""><a tabindex="-1" href="#">Configuration</a>
+						<ul class="">
 							<li><a href="#" data-inject="mcmanusers.html" id="test">Manage Users</a></li>
 							<li><a href="#" data-inject="mcmangroups.html">Manage Group</a></li>
-							<li class="dropdown-submenu"><a href="#">Manage Repository</a>
-								<ul class="dropdown-menu">
+							<li class=""><a href="#">Manage Repository</a>
+								<ul class="">
 									<li><a data-inject="mcmanrepocvs.html" href="#">CVS</a></li>
 									<li><a data-inject="mcmanrepogit.html" href="#">GITHub</a></li>
 									<li><a data-inject="mcmanreposvn.html" href="#">SVN</a></li>
@@ -61,16 +62,107 @@
 							</li>
 						</ul></li>
 					<li class="divider"></li>
-					<li class="dropdown-submenu"><a tabindex="-1" href="#">Server Maintenance</a>
-						<ul class="dropdown-menu">
+					<li class=""><a tabindex="-1" href="#">Server Maintenance</a>
+						<ul class="">
 							<li><a href="#">Add Server</a></li>
 							<li><a href="#">Stop Server</a></li>
 							<li><a href="#">Start/Stop App</a></li>
 						</ul></li>
 					<li class="divider"></li>
 				</ul>
-			</div>
-			<div id="inject" class="col-md-11" style="padding-left: 80px;">
+			</div> -->
+			 <div class="col-sm-2" >
+
+            <div class="panel-group menu-shadow" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-primary">
+                    <div class="panel-heading menu-bg" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                            Jobs <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="list-group">
+
+                                <a data-inject="mccronjob.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Schedule Job</a>
+                                <a data-inject="mcnewjob.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Ad Hoc Job</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading menu-bg" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+			            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			              Build History <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			            </a>
+			          </h4>
+			                    </div>
+			                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+			                        <div class="panel-body">
+			                            <div class="list-group">
+			
+			                                <a data-inject="mccronlist.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Scheduled Jobs</a>
+			                                <a data-inject="mcadhoclist.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Ad Hoc Jobs</a>
+			
+			
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+					<div class="panel panel-primary">
+						<div class="panel-heading menu-bg" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseThree"
+									aria-expanded="true" aria-controls="collapseThree"> Access
+									Control <span class="glyphicon glyphicon-plus pull-right dup-plus"
+									aria-hidden="true"></span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree"
+							aria-expanded="true">
+							<div class="panel-body">
+								<div class="list-group">
+									<a data-inject="mcmanusers.html" href="#" class="list-group-item"> <span
+										class="glyphicon glyphicon-link" aria-hidden="true"></span>
+										Manage Users
+									</a> <a data-inject="mcmangroups.html" href="#" class="list-group-item"> <span
+										class="glyphicon glyphicon-link" aria-hidden="true"></span>
+										Manage Groups
+									</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-primary">
+			                    <div class="panel-heading menu-bg" role="tab" id="headingThree">
+			                        <h4 class="panel-title">
+			            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+			              Repository <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			            </a>
+			          </h4>
+			                    </div>
+			                    <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="true">
+			                        <div class="panel-body">
+			                            <div class="list-group">
+			                                <a data-inject="mcmanrepocvs.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> CVS</a>
+			                                <a data-inject="mcmanrepogit.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> GITHub</a>
+			                                <a data-inject="mcmanreposvn.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> SVN</a>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			<div id="inject" class="col-md-10" >
 				<!-- main body -->
 			</div>
 		</div>
@@ -87,5 +179,8 @@
 			rights reserved.</span>
 	</div>
 	<script src="./js/mcontinuous.js"></script>
+	<script type="text/javascript">
+	    $('#accordion .panel-collapse').collapse('show');
+	</script>
 </footer>
 </html>

@@ -9,7 +9,7 @@ var CONST = {
 
 var EVENTS = {
 	menu_actions : function(){
-		$('div#vMenu').find('*').each(function(){
+		$('div#everythin').find('*').each(function(){
 			if($(this).data('inject')){				
 				$(this).on('click', function(){
 					$('#inject').load($(this).data('inject'));
