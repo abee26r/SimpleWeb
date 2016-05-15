@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
 <link rel="stylesheet" href="./css/mcontinous.css">
+<link rel="stylesheet" href="./css/waitMe.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
 <script	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
@@ -98,7 +99,7 @@
                     <div class="panel-heading menu-bg" role="tab" id="headingTwo">
                         <h4 class="panel-title">
 			            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			              Job Status <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			              Job Monitoring <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
 			            </a>
 			          </h4>
 			                    </div>
@@ -110,6 +111,23 @@
 			                                <a data-inject="mcadhoclist.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Ad Hoc Jobs</a>
 			
 			
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			         <div class="panel panel-primary">
+                    <div class="panel-heading menu-bg" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+			            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			              Governance <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			            </a>
+			          </h4>
+			                    </div>
+			                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+			                        <div class="panel-body">
+			                            <div class="list-group">
+			
+			                                <a id="test" data-inject="mcappgover.html" href="#" class="list-group-item" > <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Applications</a>
 			                            </div>
 			                        </div>
 			                    </div>
@@ -168,6 +186,7 @@
 		</div>
 		
 	</div>
+	<div id="waitMe"></div>
 </body>
 <footer class="footer text-center navbar-fixed-bottom heade foote">
 	<div class="container ">
@@ -188,6 +207,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
 	<script src="./js/mcontinuous.js"></script>
+	<script src="./js/waitMe.js"></script>
 	<script type="text/javascript">
 	    $('#accordion .panel-collapse').collapse('show');
 	</script>

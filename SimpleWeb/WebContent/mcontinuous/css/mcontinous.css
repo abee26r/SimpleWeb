@@ -21,6 +21,30 @@ fieldset{
     border-color: #eed3d7;
     color: #b94a48;
 }
+.panel > .blue_back {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+}
+.panel > .amber_back {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    color: #c09853;
+}
+
+a.green {
+    color: #468847;
+}
+a.red {
+    color: #b94a48;
+}
+a.blue {
+    color: #3a87ad;
+}
+a.amber {
+    color: #c09853;
+}
+
 
 th{
 	left: auto !important;

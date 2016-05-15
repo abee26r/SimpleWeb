@@ -3,23 +3,26 @@
 	<div class="panel panel-default text-left">
 	  <div class="panel-heading"><strong>Job Details</strong></div>
 
-		<table class="table table-hover table-bordered  text-left" >
+		<table class="table table-hover table-bordered  text-left" id="datatbl">
 			<tr>
 				<th style="width: 32px;"><input type="checkbox" ></th>
 				<th>Job Name</th>
 				<th>Job Type</th>
+				<th>Previous Run Status</th>
 				<th>Next Run</th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" ></td>
 				<td>1232141243123213</td>
 				<td>CRONJOB</td>
+				<td>Success</td>
 				<td>5/12/2016 04:00 AM</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" ></td>
 				<td>3211233545344665</td>
 				<td>CRONJOB</td>
+				<td>Success</td>
 				<td>5/13/2016 09:00 AM</td>
 			</tr>
 
@@ -28,10 +31,10 @@
 	
 	
 	<div class="col-sm-offset-5">
-		<button type="button" class="btn btn-info">Delete Jobs</button>
+		<button type="button" class="btn btn-info" onclick="CONTROLLER.delete_selected()">Delete Jobs</button>
 	</div>
 	
 </div>
 <script>
-	/* $('#cjnxt3').on('click', VIEW.disp_deploy); */
+	
 </script>
