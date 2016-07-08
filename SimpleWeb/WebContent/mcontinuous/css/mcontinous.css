@@ -4,12 +4,47 @@
 
 /* Common styles */
 .tshadow{
-	text-shadow: 2px 2px 2px #b2b2b2;
+	text-shadow: 4px 4px 2px #b2b2b2;
 }
 
 fieldset{
 	margin-top: 10px;
 }
+
+.panel > .green_back {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+}
+.panel > .red_back {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+.panel > .blue_back {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+}
+.panel > .amber_back {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    color: #c09853;
+}
+
+a.green {
+    color: #468847;
+}
+a.red {
+    color: #b94a48;
+}
+a.blue {
+    color: #3a87ad;
+}
+a.amber {
+    color: #c09853;
+}
+
 
 th{
 	left: auto !important;

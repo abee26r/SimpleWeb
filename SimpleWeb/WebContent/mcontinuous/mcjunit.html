@@ -6,7 +6,7 @@
 
 			<table class="table table-hover table-bordered  text-left">
 				<tr>
-					<th>Select</th>
+					<th style="width: 24px;"><input type="checkbox" class="checkbox" /></th>
 					<th>Application</th>
 					<th>Status</th>
 				</tr>
@@ -32,11 +32,21 @@
 	
 	
 	<div class="col-sm-offset-5">
-		<button type="button" class="btn btn-info">Unit Test and Build</button>
+		<button type="button" class="btn btn-info" onclick="updateStatus()">Unit Test and Build</button>
 		<button id="cjnxt3" type="button" class="btn btn-info">Next &nbsp;&nbsp;<icon class="glyphicon glyphicon-forward"/> </button>
 	</div>
 	
 </div>
 <script>
 	$('#cjnxt3').on('click', VIEW.disp_deploy);
+	
+	function updateStatus(){
+		console.log('asdasd');
+		$('.panel-body').find('*').each(function(){
+			if($(this).text() == 'Yet to start'){
+				$(this).text('Success');
+			}
+		});
+	}
+	
 </script>

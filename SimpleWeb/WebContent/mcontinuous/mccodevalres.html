@@ -6,7 +6,7 @@
 
 			<table class="table table-hover table-bordered  text-left">
 				<tr>
-					<th>Select</th>
+					<th style="width: 24px;"><input type="checkbox" class="checkbox" /></th>
 					<th>Application</th>
 					<th>Status</th>
 					<th>Report</th>
@@ -15,19 +15,19 @@
 					<td><input type="checkbox" class="checkbox" /></td>
 					<td>app1/master</td>
 					<td>Failed</td>
-					<td align="center"><button class="btn btn-danger btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
+					<td align="center"><button onclick="viewRep();" class="btn btn-danger btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" class="checkbox" /></td>
 					<td>app1/master</td>
 					<td>Completed</td>
-					<td align="center"><button class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
+					<td align="center"><button onclick="viewsucRep();" class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" class="checkbox" /></td>
 					<td>app1/master</td>
 					<td>Completed</td>
-					<td align="center"><button class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
+					<td align="center"><button onclick="viewsucRep();" class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
 				</tr>
 
 			</table>
@@ -36,12 +36,41 @@
 	
 	
 	<div class="col-sm-offset-5">
-		<button type="button" class="btn btn-info">Validate Code</button>
+		<button type="button" class="btn btn-info">Review Code</button>
 		<button id='cjnxt2' type="button" class="btn btn-info">Next &nbsp;&nbsp;<icon class="glyphicon glyphicon-forward"/> </button>
 	</div>
 	
 </div>
 
+<!-- Modal -->
+	<div class="modal fade" id="repModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						&times;</span>
+					</button>
+					<h4 class="modal-title" id="repModalLabel"><strong>Report</strong></h4>
+				</div>
+				<div class="modal-body" id="repBody">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <script>
 	$('#cjnxt2').on('click', VIEW.disp_junit);
+	
+	function viewRep(){
+		$('#repBody').load('./mcreviewreport.html')
+		$('#repModal').modal();
+	}
+	
+	function viewsucRep(){
+		$('#repBody').load('./mcsucreviewreport.html')
+		$('#repModal').modal();
+	}
 </script>

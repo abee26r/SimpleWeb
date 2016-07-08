@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
 <link rel="stylesheet" href="./css/mcontinous.css">
+<link rel="stylesheet" href="./css/waitMe.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
 <script	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
@@ -21,11 +22,11 @@
 				style="height: 40px;  padding-right: 0px;">
 		</div>
 		<div class="col-sm-9" style="">
-			<img class="center-block pull-left" alt="MContinuous" src="./img/mc_txt2.png"
-				style="height: 40px; margin: 0px 0 0 0px; padding: 0; ">
+			<img class="center-block pull-left" alt="MContinuous" src="./img/mc_txt6.png"
+				style="height: 40px; width: 200px; margin: 0px 0 0 0px; padding: 0; " onclick="VIEW.disp_home();">
 		</div>
 		<div class="col-sm-2 "  style="margin-top: 20px ;">
-			<a href="./mclogin.html" class="pull-right text-muted" style="font-size: 16px;" ><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+			<a href="./mclogin.html" class="pull-right text-primary" style="font-size: 16px;" ><span class="glyphicon glyphicon-log-out"></span> Logout </a>
 		</div>
 	</div>
 	<!-- body -->
@@ -98,7 +99,7 @@
                     <div class="panel-heading menu-bg" role="tab" id="headingTwo">
                         <h4 class="panel-title">
 			            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			              Build History <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			              Job Monitoring <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
 			            </a>
 			          </h4>
 			                    </div>
@@ -110,6 +111,23 @@
 			                                <a data-inject="mcadhoclist.html" href="#" class="list-group-item"> <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Ad Hoc Jobs</a>
 			
 			
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			         <div class="panel panel-primary">
+                    <div class="panel-heading menu-bg" role="tab" id="headingSix">
+                        <h4 class="panel-title">
+			            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+			              Governance <span class="glyphicon glyphicon-plus pull-right dup-plus" aria-hidden="true"></span>
+			            </a>
+			          </h4>
+			                    </div>
+			                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
+			                        <div class="panel-body">
+			                            <div class="list-group">
+			
+			                                <a id="test" data-inject="mcappgover.html" href="#" class="list-group-item" > <span class="glyphicon glyphicon-link" aria-hidden="true"></span> Applications</a>
 			                            </div>
 			                        </div>
 			                    </div>
@@ -168,17 +186,28 @@
 		</div>
 		
 	</div>
+	<div id="waitMe"></div>
 </body>
 <footer class="footer text-center navbar-fixed-bottom heade foote">
 	<div class="container ">
-		<span class="text-muted">Powered by Cognizant's IPM Mulesoft
-			Integration COE. </span><span class="text-muted"
+		<span class="">Powered by Cognizant's IPM Mulesoft
+			Integration COE. </span><span class=""
 			style="margin: 0 5px 0 5px;"><icon
 				class="glyphicon glyphicon-copyright-mark" /> </span><span
-			class="text-muted">2016 Cognizant Technology Solutions. All
+			class="">2016 Cognizant Technology Solutions. All
 			rights reserved.</span>
 	</div>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+	<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/collapse.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/button.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
 	<script src="./js/mcontinuous.js"></script>
+	<script src="./js/waitMe.js"></script>
 	<script type="text/javascript">
 	    $('#accordion .panel-collapse').collapse('show');
 	</script>
