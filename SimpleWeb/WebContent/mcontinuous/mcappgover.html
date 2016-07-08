@@ -26,19 +26,20 @@
 			</div>
 			<div class="panel-body text-center">
 				<div class=""> 
-					<p id="selectedVersion">Latest Version : V3.29</p>
+					<p id="selectedVersion">Selected Version : <font id="myappVers">V3.29</font></p>
 					<a href="#" class="blue strange"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Select other version</a>
 				</div>
 			</div>
+			<!-- $('#selectorId option:selected').val() -->
 			<div class="panel-footer blue_back" style="padding: 10px;">
 				<div class="pager" style="margin: 0;" >
-					<select class="form-control input-sm" cols="42" id="applyList"  onchange="if(confirm('Are you want to apply the change?')){ CONTROLLER.wait();}">
+					<select class="form-control input-sm" cols="42" id="applyList"  onchange="if(confirm('Are you want to apply the change?')){ CONTROLLER.wait(); $('#prodcv').text($('#myappVers').text());}">
 					  	<option selected="selected">Apply to...</option>
-					  	<option>Development</option>
-					  	<option>QA</option>
-					  	<option>Pre-Prod</option>
-					  	<option>Disaster Recovery</option>
-					  	<option>Production</option>
+					  	<option value="devcv">Development</option>
+					  	<option value="qacv">QA</option>
+					  	<option value="preprodcv">Pre-Prod</option>
+					  	<option value="drcv">Disaster Recovery</option>
+					  	<option value="prodcv">Production</option>
 					  </select>
 				</div>
 				
@@ -46,11 +47,9 @@
 		</div>
 		<div id="evnirnoments" class="text-center " style="padding-left: 10%; padding-top: 5%;">
 		
-			<table>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>
+			<table >
+				<tr >
+					<td style="padding: 3px;">
 						<div class="panel panel-success" style="width: 200px;"
 							id="p1">
 							<div class="panel-heading">
@@ -59,7 +58,7 @@
 							<div class="panel-body">
 								<div class=""> 
 									<p>Current Version</p>
-									<a href="#" class="green"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;V3.29</a>
+									<a href="#" class="green" id="devcv">  &nbsp;V3.29</a>
 								</div>
 							</div>
 							<div class="panel-footer green_back" style="padding: 10px;">
@@ -70,39 +69,67 @@
 							</div>
 						</div>
 					</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>
+					<td style="padding: 3px;">
+						<div class="panel panel-success" style="width: 200px;"
+							id="p1">
+							<div class="panel-heading">
+								<h3 class="panel-title">QA</h3>
+							</div>
+							<div class="panel-body">
+								<div class=""> 
+									<p>Current Version</p>
+									<a href="#" class="green" id="qa_vers" id="qacv">  &nbsp;V3.0</a>
+								</div>
+							</div>
+							<div class="panel-footer green_back" style="padding: 10px;">
+								<div class="pager" style="margin: 0;" >
+									<a href="#" class="green"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
+								</div>
+								
+							</div>
+						</div>
+					</td>
+					<td style="padding: 3px;">
+						<div class="panel panel-warning" style="width: 200px;"
+							id="p1">
+							<div class="panel-heading">
+								<h3 class="panel-title">Pre-Prod</h3>
+							</div>
+							<div class="panel-body">
+								<div class=""> 
+									<p>Current Version</p>
+									<a href="#" class="amber" id="preprodcv">  &nbsp;V1.0</a>
+								</div>
+							</div>
+							<div class="panel-footer amber_back" style="padding: 10px;">
+								<div class="pager" style="margin: 0;" >
+									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
+								</div>
+								
+							</div>
+						</div>
+					</td>
+					<td style="padding: 3px;">
+						<div class="panel panel-warning" style="width: 200px;"
+							id="p1">
+							<div class="panel-heading">
+								<h3 class="panel-title">Disaster Recovery</h3>
+							</div>
+							<div class="panel-body">
+								<div class=""> 
+									<p>Current Version</p>
+									<a href="#" class="amber" id="drcv">  &nbsp;V1.0</a>
+								</div>
+							</div>
+							<div class="panel-footer amber_back" style="padding: 10px;">
+								<div class="pager" style="margin: 0;" >
+									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
+								</div>
+								
+							</div>
+						</div>
+					</td>
+					<td style="padding: 3px;">
 						<div class="panel panel-danger" style="width: 200px;"
 							id="p1">
 							<div class="panel-heading">
@@ -111,7 +138,7 @@
 							<div class="panel-body">
 								<div class=""> 
 									<p>Current Version</p>
-									<a href="#" class="red"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;V1.0</a>
+									<a href="#" class="red" id="prodcv">  &nbsp;V1.0</a>
 								</div>
 							</div>
 							<div class="panel-footer red_back" style="padding: 10px;">
@@ -122,117 +149,8 @@
 							</div>
 						</div>
 					</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>
-						<div class="panel panel-success" style="width: 200px;"
-							id="p1">
-							<div class="panel-heading">
-								<h3 class="panel-title">QA</h3>
-							</div>
-							<div class="panel-body">
-								<div class=""> 
-									<p>Current Version</p>
-									<a href="#" class="green"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;V3.0</a>
-								</div>
-							</div>
-							<div class="panel-footer green_back" style="padding: 10px;">
-								<div class="pager" style="margin: 0;" >
-									<a href="#" class="green"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
-								</div>
-								
-							</div>
-						</div>
-					</td>
 				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>
-						<div class="panel panel-warning" style="width: 200px;"
-							id="p1">
-							<div class="panel-heading">
-								<h3 class="panel-title">Disaster Recovery</h3>
-							</div>
-							<div class="panel-body">
-								<div class=""> 
-									<p>Current Version</p>
-									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;V1.0</a>
-								</div>
-							</div>
-							<div class="panel-footer amber_back" style="padding: 10px;">
-								<div class="pager" style="margin: 0;" >
-									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
-								</div>
-								
-							</div>
-						</div>
-					</td>
-					<td>&nbsp;</td>
-					<td>
-						<div class="panel panel-warning" style="width: 200px;"
-							id="p1">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pre-Prod</h3>
-							</div>
-							<div class="panel-body">
-								<div class=""> 
-									<p>Current Version</p>
-									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;V1.0</a>
-								</div>
-							</div>
-							<div class="panel-footer amber_back" style="padding: 10px;">
-								<div class="pager" style="margin: 0;" >
-									<a href="#" class="amber"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> &nbsp;History</a>
-								</div>
-								
-							</div>
-						</div>
-					</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
+				
 			</table>
 			
 		</div>
@@ -300,28 +218,28 @@
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
 							<td>12/21/2015</td>
-							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait();}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
+							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait(); $('#qa_vers').text($(this).prevAll().eq(2).text())}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
 							<td>12/21/2015</td>
-							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait();}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
+							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait(); $('#qa_vers').text($(this).prevAll().eq(2).text())}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
 							<td>12/21/2015</td>
-							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait();}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
+							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait(); $('#qa_vers').text($(this).prevAll().eq(2).text())}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
 							<td>12/21/2015</td>
-							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait();}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
+							<td align="center" onclick="if(confirm('Are you sure you want to roll back to v2.90?')){ CONTROLLER.wait(); $('#qa_vers').text($(this).prevAll().eq(2).text())}"><span><icon class="glyphicon glyphicon-flash"/> </span></td>
 						</tr>
 						
 					</table>
@@ -355,25 +273,25 @@
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
-							<td align="center" data-dismiss="modal" onclick="$('#selectedVersion').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
+							<td align="center" data-dismiss="modal" onclick="$('#myappVers').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
-							<td align="center"  data-dismiss="modal" onclick="$('#selectedVersion').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
+							<td align="center"  data-dismiss="modal" onclick="$('#myappVers').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
-							<td align="center"  data-dismiss="modal" onclick="$('#selectedVersion').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
+							<td align="center"  data-dismiss="modal" onclick="$('#myappVers').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
 						</tr>
 						<tr>
 							<td>1 </td>
 							<td>v2.90 </td>
 							<td>12/21/2015</td>
-							<td align="center" data-dismiss="modal"  onclick="$('#selectedVersion').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
+							<td align="center" data-dismiss="modal"  onclick="$('#myappVers').text($(this).prevAll().eq(1).text())"><span><icon class="glyphicon glyphicon-ok"/> </span></td>
 						</tr>
 						
 					</table>

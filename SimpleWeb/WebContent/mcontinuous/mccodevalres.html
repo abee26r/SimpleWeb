@@ -21,13 +21,13 @@
 					<td><input type="checkbox" class="checkbox" /></td>
 					<td>app1/master</td>
 					<td>Completed</td>
-					<td align="center"><button class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
+					<td align="center"><button onclick="viewsucRep();" class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" class="checkbox" /></td>
 					<td>app1/master</td>
 					<td>Completed</td>
-					<td align="center"><button class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
+					<td align="center"><button onclick="viewsucRep();" class="btn btn-success btn-sm" style="padding-left: 15px; padding-right: 15px; "><icon class="glyphicon glyphicon-file"/> &nbsp;&nbsp;View</button></td>
 				</tr>
 
 			</table>
@@ -66,6 +66,11 @@
 	
 	function viewRep(){
 		$('#repBody').load('./mcreviewreport.html')
+		$('#repModal').modal();
+	}
+	
+	function viewsucRep(){
+		$('#repBody').load('./mcsucreviewreport.html')
 		$('#repModal').modal();
 	}
 </script>
